@@ -12,11 +12,6 @@ public class UserController {
 
     @GetMapping("/authenticate")
     public String authenticate(@RequestParam String username, @RequestParam String password) {
-        User user = userService.authenticate(username, password);
-        if (user != null) {
-            return "Usuário autenticado: " + user.getUsername();
-        } else {
-            return "Senha errada!"; //Enumeração de Usuário
-        }
+        return userService.authenticate(username, password);
     }
 }
